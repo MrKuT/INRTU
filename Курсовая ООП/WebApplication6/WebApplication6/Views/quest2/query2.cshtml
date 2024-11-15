@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication6.Models.Запрос2_Result>
+
+@{
+    ViewBag.Title = "Запрос 2";
+}
+
+<h2>Результат запроса 2</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <p class="h5">№ запроса</p>
+        </th>
+        <th>
+            <p class="h5">Статус заявки</p>
+        </th>
+        <th>
+            <p class="h5">Заявка</p>
+        </th>        
+        <th>
+            <p class="h5">Время заявки</p>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td scope="col">
+                @Html.DisplayFor(modelItem => item.C_)
+            </td>
+            <td scope="col">
+                @Html.DisplayFor(modelItem => item.Статус_заявки)
+            </td>
+            <td scope="col">
+                @Html.DisplayFor(modelItem => item.Заявка)
+            </td>
+            <td scope="col">
+                @Html.DisplayFor(modelItem => item.Время_заявки)
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Вернуться к Запросу 2", "Index")
+</div>

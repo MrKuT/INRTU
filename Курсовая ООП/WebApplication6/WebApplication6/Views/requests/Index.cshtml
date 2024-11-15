@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication6.Models.requests>
+
+@{
+    ViewBag.Title = "Запросы";
+}
+
+<h2>Запросы</h2>
+
+<p>
+    @Html.ActionLink("Создать запрос", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            № запроса
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requests1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comment_req)
+        </th>
+        <th>
+            Фамилия администратора
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status_req.status_name)
+        </th>
+        <th>
+            Фамилия пользователя
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_requests)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requests1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comment_req)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.admin.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status_req.status_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.users.surname)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.id_requests }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.id_requests }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_requests })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище labModelContainer" CdmEntityContainer="labEntities">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="labModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+          <ScalarProperty Name="login_admin" ColumnName="login_admin" />
+          <ScalarProperty Name="password_admin" ColumnName="password_admin" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="podr">
+      <EntityTypeMapping TypeName="labModel.podr">
+        <MappingFragment StoreEntitySet="podr">
+          <ScalarProperty Name="id_podr" ColumnName="id_podr" />
+          <ScalarProperty Name="namePodr" ColumnName="namePodr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requests">
+      <EntityTypeMapping TypeName="labModel.requests">
+        <MappingFragment StoreEntitySet="requests">
+          <ScalarProperty Name="id_requests" ColumnName="id_requests" />
+          <ScalarProperty Name="users_id_users" ColumnName="users_id_users" />
+          <ScalarProperty Name="admin_id_Admin" ColumnName="admin_id_Admin" />
+          <ScalarProperty Name="status_req_id_status" ColumnName="status_req_id_status" />
+          <ScalarProperty Name="requests1" ColumnName="requests" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="comment_req" ColumnName="comment_req" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status_req">
+      <EntityTypeMapping TypeName="labModel.status_req">
+        <MappingFragment StoreEntitySet="status_req">
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="labModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id_users" ColumnName="id_users" />
+          <ScalarProperty Name="podr_id_podr" ColumnName="podr_id_podr" />
+          <ScalarProperty Name="login_user" ColumnName="login_user" />
+          <ScalarProperty Name="password_user" ColumnName="password_user" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="access" ColumnName="access" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Запрос1" FunctionName="Хранилище labModel.Запрос1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="labModel.Запрос1_Result">
+          <ScalarProperty Name="C_" ColumnName="№" />
+          <ScalarProperty Name="Статус_заявки" ColumnName="Статус заявки" />
+          <ScalarProperty Name="Заявка" ColumnName="Заявка" />
+          <ScalarProperty Name="ФИО_пользователя" ColumnName="ФИО пользователя" />
+          <ScalarProperty Name="Подразделение" ColumnName="Подразделение" />
+          <ScalarProperty Name="Время_заявки" ColumnName="Время заявки" />
+          <ScalarProperty Name="ФИО_администратора" ColumnName="ФИО администратора" />
+          <ScalarProperty Name="Комментарий_администратора" ColumnName="Комментарий администратора" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Запрос2" FunctionName="Хранилище labModel.Запрос2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="labModel.Запрос2_Result">
+          <ScalarProperty Name="C_" ColumnName="№" />
+          <ScalarProperty Name="Статус_заявки" ColumnName="Статус заявки" />
+          <ScalarProperty Name="Заявка" ColumnName="Заявка" />
+          <ScalarProperty Name="Время_заявки" ColumnName="Время заявки" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Запрос2kurs" FunctionName="Хранилище labModel.Запрос2kurs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="labModel.Запрос2kurs_Result">
+          <ScalarProperty Name="id_requests" ColumnName="id_requests" />
+          <ScalarProperty Name="status_name" ColumnName="status_name" />
+          <ScalarProperty Name="requests" ColumnName="requests" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

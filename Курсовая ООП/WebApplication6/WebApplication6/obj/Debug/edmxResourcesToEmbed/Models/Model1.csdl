@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="labModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id_admin" />
+    </Key>
+    <Property Name="id_admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login_admin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password_admin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="middlename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="requests" Relationship="Self.requests_FKIndex2" FromRole="admin" ToRole="requests" />
+  </EntityType>
+  <EntityType Name="podr">
+    <Key>
+      <PropertyRef Name="id_podr" />
+    </Key>
+    <Property Name="id_podr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="namePodr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="Self.users_FKIndex1" FromRole="podr" ToRole="users" />
+  </EntityType>
+  <EntityType Name="requests">
+    <Key>
+      <PropertyRef Name="id_requests" />
+    </Key>
+    <Property Name="id_requests" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="users_id_users" Type="Int32" Nullable="false" />
+    <Property Name="admin_id_Admin" Type="Int32" />
+    <Property Name="status_req_id_status" Type="Byte" Nullable="false" />
+    <Property Name="requests1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="comment_req" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="admin" Relationship="Self.requests_FKIndex2" FromRole="requests" ToRole="admin" />
+    <NavigationProperty Name="status_req" Relationship="Self.requests_FKIndex1" FromRole="requests" ToRole="status_req" />
+    <NavigationProperty Name="users" Relationship="Self.requests_FKIndex3" FromRole="requests" ToRole="users" />
+  </EntityType>
+  <EntityType Name="status_req">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="requests" Relationship="Self.requests_FKIndex1" FromRole="status_req" ToRole="requests" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id_users" />
+    </Key>
+    <Property Name="id_users" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="podr_id_podr" Type="Int32" Nullable="false" />
+    <Property Name="login_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="middlename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="access" Type="Byte" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="podr" Relationship="Self.users_FKIndex1" FromRole="users" ToRole="podr" />
+    <NavigationProperty Name="requests" Relationship="Self.requests_FKIndex3" FromRole="users" ToRole="requests" />
+  </EntityType>
+  <Association Name="requests_FKIndex2">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="requests" Type="Self.requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="id_admin" />
+      </Principal>
+      <Dependent Role="requests">
+        <PropertyRef Name="admin_id_Admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_FKIndex1">
+    <End Role="podr" Type="Self.podr" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podr">
+        <PropertyRef Name="id_podr" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="podr_id_podr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="requests_FKIndex1">
+    <End Role="status_req" Type="Self.status_req" Multiplicity="1" />
+    <End Role="requests" Type="Self.requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status_req">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="requests">
+        <PropertyRef Name="status_req_id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="requests_FKIndex3">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="requests" Type="Self.requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_users" />
+      </Principal>
+      <Dependent Role="requests">
+        <PropertyRef Name="users_id_users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="labEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin" EntityType="Self.admin" />
+    <EntitySet Name="podr" EntityType="Self.podr" />
+    <EntitySet Name="requests" EntityType="Self.requests" />
+    <EntitySet Name="status_req" EntityType="Self.status_req" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <AssociationSet Name="requests_FKIndex2" Association="Self.requests_FKIndex2">
+      <End Role="admin" EntitySet="admin" />
+      <End Role="requests" EntitySet="requests" />
+    </AssociationSet>
+    <AssociationSet Name="users_FKIndex1" Association="Self.users_FKIndex1">
+      <End Role="podr" EntitySet="podr" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="requests_FKIndex1" Association="Self.requests_FKIndex1">
+      <End Role="status_req" EntitySet="status_req" />
+      <End Role="requests" EntitySet="requests" />
+    </AssociationSet>
+    <AssociationSet Name="requests_FKIndex3" Association="Self.requests_FKIndex3">
+      <End Role="users" EntitySet="users" />
+      <End Role="requests" EntitySet="requests" />
+    </AssociationSet>
+    <FunctionImport Name="Запрос1" ReturnType="Collection(labModel.Запрос1_Result)">
+      <Parameter Name="id_admin" Mode="In" Type="Int32" />
+      <Parameter Name="id_status" Mode="In" Type="Int32" />
+      <Parameter Name="time1" Mode="In" Type="DateTime" />
+      <Parameter Name="time2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Запрос2" ReturnType="Collection(labModel.Запрос2_Result)">
+      <Parameter Name="id_user" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Запрос2kurs" ReturnType="Collection(labModel.Запрос2kurs_Result)">
+      <Parameter Name="id_user" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Запрос1_Result">
+    <Property Type="Int32" Name="C_" Nullable="false" />
+    <Property Type="String" Name="Статус_заявки" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Заявка" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="ФИО_пользователя" Nullable="false" MaxLength="62" />
+    <Property Type="String" Name="Подразделение" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="Время_заявки" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ФИО_администратора" Nullable="false" MaxLength="62" />
+    <Property Type="String" Name="Комментарий_администратора" Nullable="true" MaxLength="45" />
+  </ComplexType>
+  <ComplexType Name="Запрос2_Result">
+    <Property Type="Int32" Name="C_" Nullable="false" />
+    <Property Type="String" Name="Статус_заявки" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Заявка" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="Время_заявки" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Запрос2kurs_Result">
+    <Property Type="Int32" Name="id_requests" Nullable="false" />
+    <Property Type="String" Name="status_name" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="requests" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="time" Nullable="false" Precision="23" />
+  </ComplexType>
+</Schema>

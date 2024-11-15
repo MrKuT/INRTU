@@ -1,0 +1,26 @@
+﻿@model WebApplication6.Models.podr
+
+@{
+    ViewBag.Title = "Подробнее о подразделении";
+}
+
+<h2>Подробнее о подразделении</h2>
+
+<div>
+    <h4>Подразделение</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.namePodr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.namePodr)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.id_podr }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

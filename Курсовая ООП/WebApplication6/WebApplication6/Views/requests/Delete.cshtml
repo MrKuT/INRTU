@@ -1,0 +1,78 @@
+﻿@model WebApplication6.Models.requests
+
+@{
+    ViewBag.Title = "Удаление запроса";
+}
+
+<h2>Удаление запроса</h2>
+
+<h3>Вы хотите удалить данный запрос?</h3>
+<div>
+    <h4>Запрос</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            № запроса
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_requests)
+        </dd><dt>
+            @Html.DisplayNameFor(model => model.requests1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requests1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment_req)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment_req)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admin.login_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admin.login_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status_req.status_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status_req.status_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.users.login_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.users.login_user)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

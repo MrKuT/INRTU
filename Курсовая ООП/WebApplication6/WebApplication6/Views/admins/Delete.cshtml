@@ -1,0 +1,75 @@
+﻿@model WebApplication6.Models.admin
+
+@{
+    ViewBag.Title = "Удаление администратора";
+}
+
+<h2>Удаление администратора</h2>
+
+<h3>Вы хотите удалить данного администратора?</h3>
+<div>
+    <h4>Администратор</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.login_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password_admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password_admin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.middlename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.middlename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+    </dl>
+    <dl class="dl-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

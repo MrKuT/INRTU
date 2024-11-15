@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication6.Models.status_req>
+
+@{
+    ViewBag.Title = "Статусы";
+}
+
+<h2>Статусы</h2>
+
+<p>
+    @Html.ActionLink("Создать статус", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.status_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.status_name)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.id_status }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.id_status }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_status })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication6.Models.admin>
+
+@{
+    ViewBag.Title = "Администраторы";
+}
+
+<h2>Администраторы</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.login_admin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password_admin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.middlename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.login_admin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password_admin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.middlename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.id_admin }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.id_admin }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_admin })
+        </td>
+    </tr>
+}
+
+</table>

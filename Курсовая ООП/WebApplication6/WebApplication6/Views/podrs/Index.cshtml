@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication6.Models.podr>
+
+@{
+    ViewBag.Title = "Подразделения";
+}
+
+<h2>Подразделения</h2>
+
+<p>
+    @Html.ActionLink("Создать подразделение", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.namePodr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.namePodr)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.id_podr }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.id_podr }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.id_podr })
+        </td>
+    </tr>
+}
+
+</table>
