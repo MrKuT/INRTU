@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div id="rotating-globe-animation">
+<h2>Популярные туристические места РФ</h2>
+<h3>В качестве визуализации определена следующая цель:</h3>
+<p>1. Отобразить на глобальной карте популярыне у иностранцев направления туризма в РФ.</p>
+<p>2. Предоставить возможность взаимодействия с графическими данными путем изменения размера изображения.</p>
+<p>3. Добавление функции перехода на ресурс OSM при нажатии на виртуальную карту.</p>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+
+<script type="text/javascript">
+const worldDataSource = "https://konivatsara.com/resource/tpojson/land-110m.json";
+const locationDataSource = "csvjson1.json";
+
+const width = 870;
+const height = 600;
+const config = { speed: 0.005, verticalTilt: -40, horizontalTilt: 0 }
+
+</script>
+<svg class="globe">
+</svg>
+<script type="text/javascript">
+
+let locations = [];
+
+var svg = d3.select('.globe')
+    .attr('width', width)
+    .attr('height', height)
+		.call(d3.zoom().on("zoom", function () {
+			svg.attr("transform", d3.event.transform)
+	 }))
+
+ .append("g");
+
+/*если решу оставить переход на OSM при клике*/
+ var drag = d3.drag()
+  .on("end", geolinkGlobe);
+svg.call(drag);
+
+function geolinkGlobe() {
+  var gps = projection.invert(d3.mouse(this));
+  if (gps[0] >= 180 || gps[0] <= -180)
+     return;
+  if (gps[1] >= 90 || gps[1] <= -90)
+     return;
+  window.open("https://www.openstreetmap.org/#map=6/"+gps[1]+"/"+gps[0], "_opentab");
+
+}
+		const center = [width/2, height/2];
+		const scale = Math.min(width, height)/2;
+		const grid = [7.5, 7.5];
+		const markerGroup = svg.append('g');
+		const projection = d3.geoOrthographic().translate(center);
+		const initialScale = projection.scale(scale);
+		const path = d3.geoPath().projection(projection);
+
+drawGlobe();
+drawGraticule();
+enableRotation();
+
+function drawGlobe() {
+    d3.queue()
+        .defer(d3.json, worldDataSource)
+        .defer(d3.json, locationDataSource)
+        .await((error, worldData, locationData) => {
+            svg.selectAll(".segment")
+                .data(topojson.feature(worldData, worldData.objects.land).features)
+                .enter().append("path")
+                .attr("class", "segment")
+                .attr("d", path)
+                .style("stroke", "#888")
+                .style("stroke-width", "1px")
+                .style("fill", (d, i) => '#e5e5e5')
+                .style("opacity", ".8");
+                locations = locationData;
+                drawMarkers();
+        });
+}
+
+function drawGraticule() {
+    const graticule = d3.geoGraticule()
+        .step([6, 6]);
+
+    svg.append("path")
+        .datum(graticule)
+        .attr("class", "graticule")
+        .attr("d", path)
+        .style("fill", "#fff")
+        .style("stroke", "#ccc");
+}
+
+function enableRotation() {
+    d3.timer(function (elapsed) {
+        projection.rotate([config.speed * elapsed - 90, config.verticalTilt, config.horizontalTilt]);
+        svg.selectAll("path").attr("d", path);
+        drawMarkers();
+    });
+}
+
+function drawMarkers() {
+    const markers = markerGroup.selectAll('circle')
+        .data(locations);
+    markers
+        .enter()
+        .append('circle')
+        .merge(markers)
+				.attr("id", "ToolTip")
+        .attr('cx', d => projection([d.longitude, d.latitude])[0])
+        .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('fill', d => {
+            const coordinate = [d.longitude, d.latitude];
+            gdistance = d3.geoDistance(coordinate, projection.invert(center));
+            return gdistance > 0.5 ? 'none' : 'steelblue';
+        })
+        .attr('r', 1,2);
+
+    markerGroup.each(function () {
+        this.parentNode.appendChild(this);
+    });
+}
+
+</script>
+
+</html>

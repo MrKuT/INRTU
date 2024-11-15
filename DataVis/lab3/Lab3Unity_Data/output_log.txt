@@ -1,0 +1,62 @@
+Initialize engine version: 5.6.7f1 (e80cc3114ac1)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Ti (ID=0x2486)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   31.0.15.1694
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.018 seconds
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\mrbla\OneDrive\Документы\Lab3Unity\Lab3\Lab3Unity_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.222700 ms
+System.Collections.Generic.List`1[System.Collections.Generic.Dictionary`2[System.String,System.Object]]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+There are 6 columns in the CSV
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is Sepal.Length
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is Sepal.Width
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is Petal.Length
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is Petal.Width
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Column name is Species
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3b54 -> priority: 1 
+  Thread -> id: 42fc -> priority: 1 
