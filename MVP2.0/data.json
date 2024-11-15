@@ -1,0 +1,24 @@
+[ {
+  "@class" : "sample.models.Aircraft",
+  "id" : 1,
+  "name" : "Airbus 322",
+  "speed" : 800,
+  "distance" : 3400,
+  "range" : 3750,
+  "load" : 73
+}, {
+  "@class" : "sample.models.Train",
+  "id" : 2,
+  "name" : "Паровозик Томас",
+  "speed" : 99,
+  "distance" : 666,
+  "wagons" : 13
+}, {
+  "@class" : "sample.models.Aircraft",
+  "id" : 3,
+  "name" : "Airbus 122",
+  "speed" : 750,
+  "distance" : 3400,
+  "range" : 3750,
+  "load" : 75
+} ]

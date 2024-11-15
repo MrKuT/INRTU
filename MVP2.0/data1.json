@@ -1,0 +1,39 @@
+[ {
+  "@class" : "sample.models.Aircraft",
+  "id" : 1,
+  "name" : "Airbus 322",
+  "speed" : 800,
+  "distance" : 3400,
+  "range" : 3750,
+  "load" : 73
+}, {
+  "@class" : "sample.models.Train",
+  "id" : 2,
+  "name" : "Паровозик Томас",
+  "speed" : 99,
+  "distance" : 666,
+  "wagons" : 13
+}, {
+  "@class" : "sample.models.Aircraft",
+  "id" : 3,
+  "name" : "Airbus 122",
+  "speed" : 750,
+  "distance" : 3400,
+  "range" : 3750,
+  "load" : 75
+}, {
+  "@class" : "sample.models.Train",
+  "id" : 4,
+  "name" : "Паровоз",
+  "speed" : 75,
+  "distance" : 750,
+  "wagons" : 11
+}, {
+  "@class" : "sample.models.Aircraft",
+  "id" : 5,
+  "name" : "Кукурузник",
+  "speed" : 650,
+  "distance" : 1234,
+  "range" : 2000,
+  "load" : 13
+} ]

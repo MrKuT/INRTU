@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.gui.MainFormController">
+    <children>
+      <HBox prefHeight="28.0" prefWidth="600.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onSaveToFile" text="Сохранить" />
+                        <MenuItem mnemonicParsing="false" onAction="#onLoadFromFile" text="Загрузить" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Данные">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#addTransport" text="Добавить" />
+                        <MenuItem mnemonicParsing="false" onAction="#onEditClick" text="Редактировать" />
+                        <MenuItem mnemonicParsing="false" onAction="#onDeleteClick" text="Удалить" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Запрос">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onCalcTime" text="Время в пути" />
+                        <MenuItem mnemonicParsing="false" onAction="#onCommonRoadTo" text="Общий путь для..." />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </HBox>
+      <HBox prefHeight="27.0" prefWidth="659.0">
+         <children>
+            <Label text="Тип транспорта:">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <ComboBox fx:id="cmbFilter" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Label fx:id="z1">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets left="150.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+        <TableView fx:id="mainTable" prefHeight="384.0" prefWidth="659.0" VBox.vgrow="ALWAYS" />
+    </children>
+</VBox>
